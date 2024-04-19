@@ -1,0 +1,61 @@
+---
+import MenuH from "../components/MenuH.astro";
+import Close from "../components/Close.astro";
+---
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const abrir = document.getElementById("abrir");
+    const menu = document.querySelector(".menu");
+    const close = document.getElementById("close");
+    const quitarM = document.querySelectorAll(".quitarM");
+
+    abrir.addEventListener("click", function () {
+      menu.classList.remove("menu");
+    });
+
+    close.addEventListener("click", function () {
+      menu.classList.add("menu");
+    });
+
+    quitarM.forEach(function (quitarM) {
+      quitarM.addEventListener("click", function () {
+        menu.classList.add("menu");
+      });
+    });
+  });
+</script>
+
+<main class="px-4 mt-4">
+    <header class="flex flex-wrap items-center justify-end p-4 max-w-[900px] bg-[#212d3454] rounded-full mr-auto m-auto">
+        <MenuH />
+        <nav
+          class=" bg-[#212C33] menu flex flex-wrap justify-center gap-8 items-center text-white text-sm flex-col fixed top-0 right-0 left-0 bottom-0 py-14 px-10 z-10"
+        >
+          <a href="#about" class="quitarM font-bold transition-all hover:scale-110"
+            >Acerca</a
+            
+          ><a href="#education" class="quitarM font-bold transition-all hover:scale-110"
+            >Educación</a
+          >
+          <a href="#habilidades" class="quitarM font-bold transition-all hover:scale-110"
+            >Habilidades</a
+          >
+          <a href="#works" class="quitarM font-bold transition-all hover:scale-110"
+            >Proyectos</a
+          >
+          <a
+            href="#contact"
+            class="quitarM font-bold bg-[#334641] rounded-full p-2 hover:bg-slate-700"
+            >Contacto</a
+          >
+          <Close />
+        </nav>
+      </header>
+</main>
+
+<style>
+  .menu {
+    display: none;
+  }
+</style>
